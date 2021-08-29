@@ -1,0 +1,64 @@
+.container {
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(35, 35, 60);
+  height: 100vh;
+}
+
+.main {
+  padding: 5rem 0;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  padding: 24px;
+  border: 2px solid transparent;
+}
+
+.input {
+  width: 200px;
+  background: transparent;
+  border: none;
+  text-align: center;
+  font-size: 40px;
+  outline: none;
+  color: white;
+}
+
+.correctAnswer {
+  font-size: 24px;
+  color: green;
+}
+
+.button {
+  border-radius: 4px;
+  border: 1px solid white;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  padding: 12px;
+}
+
+.errorList {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttonGroup {
+  display: inline-block;
+}
