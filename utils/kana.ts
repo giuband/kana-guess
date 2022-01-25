@@ -45,10 +45,34 @@ export type Syllable =
   | 'wa'
   | 'wo'
   | 'n'
+  | 'ga'
+  | 'gi'
+  | 'gu'
+  | 'ge'
+  | 'go'
+  | 'za'
+  | 'ji'
+  | 'zu'
+  | 'ze'
+  | 'zo'
+  | 'da'
+  | 'ji2'
+  | 'zu2'
+  | 'de'
+  | 'do'
+  | 'ba'
+  | 'bi'
+  | 'bu'
+  | 'be'
+  | 'bo'
+  | 'pa'
+  | 'pi'
+  | 'pu'
+  | 'pe'
+  | 'po'
 
 type AlphabetRecord = {
   value: string
-  similar?: Array<`${Syllable}-hira` | `${Syllable}-kata`>
 }
 
 export type Alphabet = Record<
@@ -59,9 +83,17 @@ export type Alphabet = Record<
   }
 >
 
+export type KanaValue = {
+  value: string
+  syllable: Syllable
+  alphabet: 'hira' | 'kata'
+}
+
+export type StoredError = Pick<KanaValue, 'syllable' | 'alphabet'>
+
 const kana: Alphabet = {
   a: {
-    hira: { value: 'あ', similar: ['me-hira', 'nu-hira'] },
+    hira: { value: 'あ' },
     kata: { value: 'ア' },
   },
   i: {
@@ -69,11 +101,8 @@ const kana: Alphabet = {
     kata: { value: 'イ' },
   },
   u: {
-    hira: { value: 'う', similar: ['tsu-hira'] },
-    kata: {
-      value: 'ウ',
-      similar: ['fu-kata', 'wa-kata', 'ku-kata', 'ra-kata', 'wo-kata'],
-    },
+    hira: { value: 'う' },
+    kata: { value: 'ウ' },
   },
   e: {
     hira: { value: 'え' },
@@ -247,6 +276,31 @@ const kana: Alphabet = {
     hira: { value: 'ん' },
     kata: { value: 'ン' },
   },
+  ga: { hira: { value: 'が' }, kata: { value: 'ガ' } },
+  gi: { hira: { value: 'ぎ' }, kata: { value: 'ギ' } },
+  gu: { hira: { value: 'ぐ' }, kata: { value: 'グ' } },
+  ge: { hira: { value: 'げ' }, kata: { value: 'ゲ' } },
+  go: { hira: { value: 'ご' }, kata: { value: 'ゴ' } },
+  za: { hira: { value: 'ざ' }, kata: { value: 'ザ' } },
+  ji: { hira: { value: 'じ' }, kata: { value: 'ジ' } },
+  zu: { hira: { value: 'ず' }, kata: { value: 'ズ' } },
+  ze: { hira: { value: 'ぜ' }, kata: { value: 'ゼ' } },
+  zo: { hira: { value: 'ぞ' }, kata: { value: 'ゾ' } },
+  da: { hira: { value: 'だ' }, kata: { value: 'ダ' } },
+  ji2: { hira: { value: 'ぢ' }, kata: { value: 'ヂ' } },
+  zu2: { hira: { value: 'づ' }, kata: { value: 'ヅ' } },
+  de: { hira: { value: 'で' }, kata: { value: 'デ' } },
+  do: { hira: { value: 'ど' }, kata: { value: 'ド' } },
+  ba: { hira: { value: 'ば' }, kata: { value: 'バ' } },
+  bi: { hira: { value: 'び' }, kata: { value: 'ビ' } },
+  bu: { hira: { value: 'ぶ' }, kata: { value: 'ブ' } },
+  be: { hira: { value: 'べ' }, kata: { value: 'ベ' } },
+  bo: { hira: { value: 'ぼ' }, kata: { value: 'ボ' } },
+  pa: { hira: { value: 'ぱ' }, kata: { value: 'パ' } },
+  pi: { hira: { value: 'ぴ' }, kata: { value: 'ピ' } },
+  pu: { hira: { value: 'ぷ' }, kata: { value: 'プ' } },
+  pe: { hira: { value: 'ぺ' }, kata: { value: 'ペ' } },
+  po: { hira: { value: 'ぽ' }, kata: { value: 'ポ' } },
 }
 
 export const syllables: Array<Syllable> = Object.keys(kana) as Array<Syllable>
